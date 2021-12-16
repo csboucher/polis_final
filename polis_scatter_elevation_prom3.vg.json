@@ -1,0 +1,33 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 250,
+  "height": 500,
+  "padding": 5,
+
+  "data": {
+    "url": "data/polis.json",
+    "format": {
+      "type": "json",
+      "property": "features"
+    }
+
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "point",
+        "filled": true
+      },
+      "encoding": {
+        "x": {
+          "field": "properties.prom 3",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "properties.Elevation m",
+          "type": "quantitative"
+        }
+      }
+    }
+  ]
+}

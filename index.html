@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+    <title>Polis Plot</title>
+</head>
+<body>
+<center>
+    <h3>Hypothesis: It's about the Geology</h3>
+    <h4>There is a connection between wealth, signified by bronze and silver and how remote a polis is, signified by elevation and the number of stasis </h4>
+</center>
+
+
+</body>
+<!--- Observe there are data collected from
+# https://github.com/simonepri/geo-maps
+# presented in this assignment. --->
+
+<div id="polis_geographic"></div>
+<div id="polis_scatter"></div>
+<div id="polis_bronze" ></div>
+<div id="polis_silver" ></div>
+<div id="polis_elevation" ></div>
+
+<h4>The data was collected and provided by Professor Scott Arcenas from the University of Montana, Missoula</h4>
+<script>
+    const spec_polis = "polis_dual.vg.json";
+    vegaEmbed("#polis_geographic", spec_polis)
+        .then(result => console.log(result))
+        .catch(console.warn);
+
+    const spec_bronze = "polis_scatter_bronze.vg.json";
+    vegaEmbed("#polis_bronze", spec_bronze)
+        .then(result => console.log(result))
+        .catch(console.warn)
+
+    const spec_silver = "polis_scatter_silver.vg.json";
+    vegaEmbed("#polis_silver", spec_silver)
+        .then(result => console.log(result))
+        .catch(console.warn)
+
+    const spec_elevation = "polis_scatter_elevation.vg.json";
+    vegaEmbed("#polis_elevation", spec_elevation)
+        .then(result => console.log(result))
+        .catch(console.warn)
+
+    const spec_scatter = "polis_scatter.vg.json";
+    vegaEmbed("#polis_scatter", spec_scatter)
+        .then(result => console.log(result))
+        .catch(console.warn);
+
+
+</script>
+
+</html>

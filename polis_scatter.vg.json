@@ -1,0 +1,54 @@
+
+
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 250,
+  "height": 500,
+  "padding": 5,
+
+  "data": {
+    "url": "data/polis.json",
+    "format": {
+      "type": "json",
+      "property": "features"
+    }
+  },
+  "transform": [
+    {
+      "bin": true,
+      "field": "properties.polis#",
+      "as": "binned polis"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "point",
+        "fill" : true,
+        "tooltip": true
+      },
+      "encoding": {
+        "x": {
+          "field": "properties.polis#",
+          "type": "quantitative",
+          "bin": {
+            "binned": true,
+            "step": 207
+          }
+        },
+        "y": {
+          "field": "properties.staseis",
+          "type": "quantitative"
+        },
+        "color" : {
+          "field": "binned polis",
+          "type" : "quantitative",
+          "scale" : {
+            "range": ["#B24C63", "#5438DC", "#357DED", "#56EEF4", "#32E875"]
+          }
+        }
+
+      }
+    }
+  ]
+}
